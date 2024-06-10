@@ -1,0 +1,91 @@
+ - location
+ 	- id
+	- name
+	- custom attributes
+ - section
+ 	- id
+	- center
+	- available-ports
+	- max-distance (meters)
+	- custom attributes
+ - person
+ 	- id
+	- name
+	- type
+	- phone
+	- email
+	- document
+	- birthdate
+	- attributes
+ - session
+ 	- customer
+	- location attributes
+ - order intent
+ 	- id
+	- list (item / price) <persisted as archive>
+	- total 
+	- delivery address
+	- execution address
+	- billing address
+	- attributes
+	- session
+	- status
+	- applied-promotions
+	- created-at
+ - order log
+ 	- id
+	- type (CREATION, STATUS-CHANGE, MANUAL-CHANGE)
+	- old-attritutes
+	- new-attributes
+ - order
+ 	- id
+	- status
+	- created-at
+ - promotion
+ 	- id
+	- name
+	- descripiton
+	- elibility-rule
+	- type (percent, absolute)
+	- value
+ - inventory
+ 	- scope
+	- product
+	- quantity
+ - viability-rule
+ 	- id
+	- location / section
+	- product-id
+	- attributes-list
+		- name
+		- values-list
+ - scope
+ 	// product and variation are both items
+ 	- product
+		- id
+		- name
+		- display-name
+		- attributes
+		- variation-attribute-definitions
+		- eligibility-rules
+		- cardinality ?
+			- min
+			- max
+		- type (service / item)
+		- variation
+			- cardinality ?
+				- min
+				- max
+			- variation-attribute-values
+			- price
+	- combination
+		// an instanace of a combination is called a package
+		- id
+		- list <qty, item>
+		- total
+	- eligibility-rule
+		- id
+		- description
+		- type (order_intent / rule_combination)
+		- operator (and / or / not / contains / contains_property / equals / less / more) 
+
