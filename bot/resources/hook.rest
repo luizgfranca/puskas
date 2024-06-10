@@ -1,0 +1,32 @@
+# hook
+POST http://localhost:3000/hook
+Content-Type: application/json
+
+{
+    "id": "bf70a249-f33e-4af9-9d2f-c6d71716c940",
+    "timestamp": "2024-06-10T01:06:18.767Z",
+    "type": "MESSAGE",
+    "subscriptionId": "88b64c93-b593-4a0a-a782-f18672ebb72a",
+    "channel": "whatsapp",
+    "direction": "IN",
+    "message": {
+      "id": "f449a992-8e68-4613-bb32-4dfcd23a77c7",
+      "from": "5534999359410",
+      "to": "jolly-rover",
+      "direction": "IN",
+      "channel": "whatsapp",
+      "visitor": {
+        "name": "Luiz",
+        "firstName": "Luiz",
+        "lastName": ""
+      },
+      "contents": [
+        {
+          "type": "text",
+          "text": "ping"
+        }
+      ],
+      "timestamp": "2024-06-10T01:06:16+00:00",
+      "idRef": "dbb2cd64-8506-4b49-9df7-3fca7456f15e"
+    }
+}
