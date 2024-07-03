@@ -1,10 +1,13 @@
 import type { Router } from "express";
-import { experimentalProducts } from "../experiments/experimental-products";
+import { Datasource } from "../db/datasource";
+import { Product } from "../model/product";
 
 export function ProductController(router: Router) {
     router
         .route('/product')
-        .get((req, res) => [
-            res.json(experimentalProducts())
-        ])
+        .get(async (req, res) => {
+            const response = await Datasource.manager().find(Product);
+            console.log(response)
+            res.json( response )
+        })
 }
