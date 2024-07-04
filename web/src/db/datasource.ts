@@ -19,5 +19,9 @@ export const Datasource = {
 
     manager() {
         return AppDatasource.manager
+    },
+
+    instance() {
+        return AppDatasource;
     }
 }

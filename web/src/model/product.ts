@@ -9,20 +9,20 @@ export class Product extends BaseEntity {
     ) {
         super();
 
-        this.primaryTitle = primaryTitle ?? '';
-        this,secondaryTitle = secondaryTitle ?? '';
+        this.primaryTitle = primaryTitle || '';
+        this.secondaryTitle = secondaryTitle || '';
         this.price = price ?? 0;
     }
 
     @PrimaryGeneratedColumn()
-    id: number = 0
+    id!: number;
 
     @Column()
-    primaryTitle: string = '';
+    primaryTitle: string;
 
     @Column()
-    secondaryTitle: string = '';
-
+    secondaryTitle: string;
+ 
     @Column()
-    price: number = 0;
+    price: number;
 }
