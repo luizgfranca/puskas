@@ -19,7 +19,7 @@ export class Product extends BaseEntity {
 
     @Column()
     primaryTitle: string;
-
+ 
     @Column()
     secondaryTitle: string;
  
