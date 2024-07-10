@@ -2,12 +2,13 @@ import type { Router } from "express";
 import { Datasource } from "../db/datasource";
 import { Product } from "../model/product";
 import { toProduct, type CreateProductDto } from "./dto/product.dto";
+import { ProductService } from "../service/product.service";
 
 export function ProductController(router: Router) {
     router
         .route('/product')
         .get(async (req, res) => {
-            const response = await Datasource.manager().find(Product);
+            const response = await ProductService.all();
             res.json( response )
         })
         .post(async (req, res) => {
@@ -16,9 +17,7 @@ export function ProductController(router: Router) {
                 return res.status(400);
             }
 
-            const repo = Datasource.instance().getRepository(Product);
-
-            const product = await repo.save( toProduct(input) );
+            const product = await ProductService.create( toProduct(input) )
 
             res.status(201);
             res.json(product)

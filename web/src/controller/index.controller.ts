@@ -1,9 +1,10 @@
 import type { Router } from "express";
-import ejs from 'ejs';
+import { ProductService } from "../service/product.service";
 
 export function IndexController(router: Router) {
     router.route('/')
-        .get((req, res) => {
-            res.render('index')
+        .get(async (req, res) => {
+            const products = await ProductService.all();
+            res.render('index', { products })
         })
 }
