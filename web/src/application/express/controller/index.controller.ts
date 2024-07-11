@@ -1,5 +1,5 @@
 import type { Router } from "express";
-import { ProductService } from "../service/product.service";
+import { ProductService } from "../../../module/product/product.service";
 
 export function IndexController(router: Router) {
     router.route('/')

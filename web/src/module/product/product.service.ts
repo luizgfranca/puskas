@@ -1,5 +1,5 @@
-import { Datasource } from "../db/datasource";
-import { Product } from "../model/product";
+import { Datasource } from "../../infrastructure/db/datasource";
+import { Product } from "./product.model";
 
 const ProductService = {
     async all() {

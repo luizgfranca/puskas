@@ -1,6 +1,6 @@
 import express from 'express'
 import { getRouter } from './router';
-import { Datasource } from './db/datasource';
+import { Datasource } from '../../infrastructure/db/datasource';
 
 const PORT = 3000
 const app = express();

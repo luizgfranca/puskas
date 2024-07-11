@@ -1,8 +1,6 @@
 import type { Router } from "express";
-import { Datasource } from "../db/datasource";
-import { Product } from "../model/product";
 import { toProduct, type CreateProductDto } from "./dto/product.dto";
-import { ProductService } from "../service/product.service";
+import { ProductService } from "../../../module/product/product.service";
 
 export function ProductController(router: Router) {
     router
