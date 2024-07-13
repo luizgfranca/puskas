@@ -1,10 +1,11 @@
 import { DataSource } from "typeorm";
 import { Product } from "../../module/product/product.model";
+import { Location } from "../../module/location/location.model";
 
 const AppDatasource = new DataSource({
     type: 'sqlite',
     database: 'test.sqlite',
-    entities: [Product]
+    entities: [Product, Location]
 });
 
 export const Datasource = {
