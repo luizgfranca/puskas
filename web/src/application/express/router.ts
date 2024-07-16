@@ -9,8 +9,8 @@ export function getRouter(): Router {
     ProductController(router);
     LocationController(router);
 
-    IndexPage(router);
     LocationsPage(router);
+    IndexPage(router);
 
     return router;
 }
