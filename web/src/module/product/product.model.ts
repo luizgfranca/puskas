@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToMany, JoinTable } from "typeorm"
+import { Location } from "../location/location.model";
 
 @Entity()
 export class Product extends BaseEntity {
@@ -25,4 +26,8 @@ export class Product extends BaseEntity {
  
     @Column()
     price: number;
+
+    @ManyToMany(() => Location, {eager: true})
+    @JoinTable({name: 'rel_product_available_in_location'})
+    availableLocations?: Location[];
 }

@@ -14,8 +14,8 @@ create table location (
 
 create table rel_product_available_in_location (
     id              integer primary key autoincrement,
-    product_id      integer references product(id),
-    location_id      integer references location(id)
+    productId      integer references product(id),
+    locationId     integer references location(id)
 );
 
 
