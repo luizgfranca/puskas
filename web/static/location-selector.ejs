@@ -18,9 +18,11 @@
           <div class="bg-white shadow-xl rounded-lg w-1/2">
             <ul class="divide-y divide-gray-300">
               <% for(var location of locations) { %>
-              <li class="p-4 hover:bg-gray-50 cursor-pointer">
-                <%= location.name %>
-              </li>
+                <a href="/offers/<%= location.acronym %>">
+                  <li class="p-4 hover:bg-gray-50 cursor-pointer">
+                    <%= location.name %>
+                  </li>
+                </a>
               <% } %>
             </ul>
           </div>

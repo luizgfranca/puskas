@@ -3,7 +3,7 @@ import { ProductService } from "../../../module/product/product.service";
 import { LocationService } from "../../../module/location/location.service";
 
 export function IndexPage(router: Router) {
-    router.route('/:locationAcronym')
+    router.route('/offers/:locationAcronym')
         .get(async (req, res) => {
             const { locationAcronym } = req.params;
             if(!locationAcronym) {
