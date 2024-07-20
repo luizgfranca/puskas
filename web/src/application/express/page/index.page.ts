@@ -18,6 +18,6 @@ export function IndexPage(router: Router) {
             }
 
             const products = await ProductService.getProductsAvailableOnLocation(location.id);
-            res.render('index', { products })
+            res.render('index', { products, location })
         })
 }
