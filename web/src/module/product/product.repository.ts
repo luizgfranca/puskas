@@ -2,10 +2,10 @@ import { Datasource } from "../../infrastructure/db/datasource";
 import { Product } from "./product.model";
 
 const PRODUCTS_BY_AVAILABLE_LOCATION_QUERY = `
-select * 
+select p.* 
 FROM product p
 JOIN rel_product_available_in_location rpal on rpal.productId = p.id
-WHERE rpal.id = :id
+WHERE rpal.locationId = :id
 `
 
 const ProductRepository = Datasource.instance()
