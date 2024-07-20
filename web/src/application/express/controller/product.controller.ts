@@ -20,4 +20,19 @@ export function ProductController(router: Router) {
             res.status(201);
             res.json(product)
         })
+    
+    router
+        .route('/location/:id/product')
+        .get(async (req, res) => {
+            const maybeId = Number(req.params?.id);
+            
+            if(maybeId) {
+                const id = maybeId;
+                const result = await ProductService.getProductsAvailableOnLocation(id);
+                return res.json(result)
+            }
+            
+            res.status(204);
+            res.end();
+        })
 }

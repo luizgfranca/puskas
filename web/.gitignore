@@ -175,3 +175,7 @@ dist
 .DS_Store
 
 *.sqlite
+
+
+.vscode
+*.session.sql
