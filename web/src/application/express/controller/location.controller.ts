@@ -1,11 +1,18 @@
 import type { Router } from "express";
-import { toLocation, type CreateLocationDto } from "./dto/location.dto";
+import { toLocation, type CreateLocationDto, type GetLocationQueryParamsDto } from "./dto/location.dto";
 import { LocationService } from "../../../module/location/location.service";
 
 export function LocationController(router: Router) {
     router
         .route('/location')
         .get(async (req, res) => {
+            const { acronym } = req.query as GetLocationQueryParamsDto;
+            
+            if(acronym) {
+                const response = await LocationService.findFromAcronym(acronym);
+                res.json([response]);
+            }
+
             const response = await LocationService.all();
             res.json( response )
         })
@@ -20,4 +27,16 @@ export function LocationController(router: Router) {
             res.status(201);
             res.json(created)
         })
+
+    router.get('/location/:acronym', async (req, res) => {
+        const { acronym } = req.params;
+            
+        if(acronym) {
+            const response = await LocationService.findFromAcronym(acronym);
+            res.json(response);
+        }
+
+        res.status(204)
+        return res.end()
+    })
 }

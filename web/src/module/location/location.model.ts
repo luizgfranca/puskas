@@ -3,11 +3,13 @@ import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm"
 @Entity()
 export class Location extends BaseEntity {
     constructor(
-        name?: string
+        name?: string,
+        acronym?: string
     ) {
         super();
 
         this.name = name ?? '';
+        this.acronym = acronym ?? '';
     }
 
     @PrimaryGeneratedColumn()
@@ -15,4 +17,7 @@ export class Location extends BaseEntity {
 
     @Column()
     name: string;
+
+    @Column()
+    acronym: string;
 }

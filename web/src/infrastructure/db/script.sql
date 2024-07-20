@@ -9,7 +9,8 @@ create table product (
 
 create table location (
     id              integer primary key autoincrement,
-    name            varchar(255)
+    name            varchar(255),
+    acronym         varchar(255)
 ); 
 
 create table rel_product_available_in_location (
@@ -27,6 +28,9 @@ insert into product (primaryTitle, secondaryTitle, price) values ('Banda Larga',
 insert into product (primaryTitle, secondaryTitle, price) values ('Banda Larga', '1 GIGA', 129.90);
 insert into product (primaryTitle, secondaryTitle, price) values ('Celular', '15GB', 44.90);
 
-insert into location (name) values ('Santa Monica - Uberlândia');
-insert into location (name) values ('Roosevelt - Uberlândia');
-insert into location (name) values ('Saraiva - Uberlândia');
+insert into location (name, acronym) values ('Santa Monica - Uberlândia', 'uberlandia-santa_monica');
+insert into location (name, acronym) values ('Roosevelt - Uberlândia', 'uberlandia-roosevelt');
+insert into location (name, acronym) values ('Saraiva - Uberlândia', 'uberlandia-saraiva');
+
+insert into rel_product_available_in_location (productId, locationId) 
+values (1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3), (3, 1), (3, 2), (4, 1), (4, 2), (4, 3);

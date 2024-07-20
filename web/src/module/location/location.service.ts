@@ -7,6 +7,10 @@ const LocationService = {
     },
     async create(location: Location) {
         return await LocationRepository.save(location);
+    },
+    async findFromAcronym(acronym: string) {
+        const res =  await LocationRepository.findOneBy({ acronym })
+        return res;
     }
 };
 
