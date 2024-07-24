@@ -3,15 +3,18 @@ import { Product } from "./product.model";
 import { ProductRepository } from "./product.repository";
 
 const ProductService = {
-    async all() {
-        return await Datasource.manager().find(Product);
-    },
-    async create(product: Product) {
-        return await ProductRepository.save(product);
-    },
-    async getProductsAvailableOnLocation(locationId: number): Promise<Product[]> {
-        return await ProductRepository.findAvailableOnLocation(locationId);
-    }
-}
+  async all() {
+    return await Datasource.manager().find(Product);
+  },
+  async get(id: number) {
+    return await ProductRepository.findOneBy({ id });
+  },
+  async create(product: Product) {
+    return await ProductRepository.save(product);
+  },
+  async getProductsAvailableOnLocation(locationId: number): Promise<Product[]> {
+    return await ProductRepository.findAvailableOnLocation(locationId);
+  },
+};
 
-export { ProductService }
+export { ProductService };

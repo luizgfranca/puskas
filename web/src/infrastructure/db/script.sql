@@ -5,8 +5,6 @@ create table product (
     price           double
 );
 
-
-
 create table location (
     id              integer primary key autoincrement,
     name            varchar(255),
@@ -15,14 +13,24 @@ create table location (
 
 create table rel_product_available_in_location (
     id              integer primary key autoincrement,
-    productId      integer references product(id),
-    locationId     integer references location(id)
+    productId       integer references product(id),
+    locationId      integer references location(id)
+);
+
+create table cart (
+    id              integer primary key autoincrement,
+    locationId        integer references location(id)
+);
+
+create table cart_item (
+    id              integer primary key autoincrement,
+    cartId          integer references cart(id),
+    productId       integer references product(id),
+    price           double default 0
 );
 
 
-
 /* TEST DATA */
-
 insert into product (primaryTitle, secondaryTitle, price) values ('Banda Larga', '300 MEGA', 89.90);
 insert into product (primaryTitle, secondaryTitle, price) values ('Banda Larga', '600 MEGA', 109.90);
 insert into product (primaryTitle, secondaryTitle, price) values ('Banda Larga', '1 GIGA', 129.90);
@@ -33,4 +41,8 @@ insert into location (name, acronym) values ('Roosevelt - Uberlândia', 'uberlan
 insert into location (name, acronym) values ('Saraiva - Uberlândia', 'uberlandia-saraiva');
 
 insert into rel_product_available_in_location (productId, locationId) 
-values (1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3), (3, 1), (3, 2), (4, 1), (4, 2), (4, 3);
+values 
+    (1, 1), (1, 2), (1, 3), 
+    (2, 1), (2, 2), (2, 3), 
+    (3, 1), (3, 2), 
+    (4, 1), (4, 2), (4, 3);
