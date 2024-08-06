@@ -29,6 +29,14 @@ create table cart_item (
     price           double default 0
 );
 
+create table customer (
+    id              integer primary key autoincrement,
+    name            varchar(4096) not null,
+    document        varchar(14),
+    email           varchar(256),
+    phone           varchar(11)
+);
+
 
 /* TEST DATA */
 insert into product (primaryTitle, secondaryTitle, price) values ('Banda Larga', '300 MEGA', 89.90);

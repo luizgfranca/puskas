@@ -3,11 +3,12 @@ import { Product } from "../../module/product/product.model";
 import { Location } from "../../module/location/location.model";
 import { CartItem } from "../../module/cart/cart-item.model";
 import { Cart } from "../../module/cart/cart.model";
+import { Customer } from "../../module/customer/customer.model";
 
 const AppDatasource = new DataSource({
     type: 'sqlite',
     database: 'test.sqlite',
-    entities: [Product, Location, Cart, CartItem]
+    entities: [Product, Location, Cart, CartItem, Customer]
 });
 
 export const Datasource = {

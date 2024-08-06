@@ -1,6 +1,7 @@
 import type { Router } from "express";
 import { toLocation, type CreateLocationDto, type GetLocationQueryParamsDto } from "./dto/location.dto";
 import { LocationService } from "../../../module/location/location.service";
+import { SessionService } from "../../../module/session/session.service";
 
 export function LocationController(router: Router) {
     router
@@ -38,5 +39,16 @@ export function LocationController(router: Router) {
 
         res.status(204)
         return res.end()
+    })
+
+    router.get('/location/:acronym/selection', async (req, res) => {
+        const { acronym } = req.params;
+        
+        const maybeLocationSet = await SessionService.setLocation(req.session, acronym);
+        if(!maybeLocationSet) {
+            return res.redirect('/location-selector?error=true');
+        }
+
+        return res.redirect(`/offers/${acronym}`);
     })
 }

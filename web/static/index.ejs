@@ -47,9 +47,12 @@
                       Confirm order
                   </button> -->
 
-                  <button class="bg-yellow-300 hover:bg-yellow-400 font-bold py-2 px-4 rounded w-full">
+                  <form method="post" action="/checkout">
+                    <input type="hidden" name="productId" value="<%= product.id %>">
+                    <button type="submit" class="bg-yellow-300 hover:bg-yellow-400 font-bold py-2 px-4 rounded w-full">
                       Assine Já
                   </button>
+                  </form>
               </div>
             </div>
           <% } %>
