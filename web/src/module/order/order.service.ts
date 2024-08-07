@@ -9,6 +9,9 @@ const OrderService = {
         const order = new Order(customer, cart, address);
         const saved = await OrderRepository.save(order);
         return saved;
+    },
+    async all() {
+        return await OrderRepository.find();
     }
 }
 
