@@ -19,7 +19,7 @@ create table rel_product_available_in_location (
 
 create table cart (
     id              integer primary key autoincrement,
-    locationId        integer references location(id)
+    locationId      integer references location(id)
 );
 
 create table cart_item (
@@ -37,6 +37,22 @@ create table customer (
     phone           varchar(11)
 );
 
+create table address (
+    id                      integer primary key autoincrement,
+    postcode                varchar(256),
+    street                  varchar(256),
+    streetNumber            varchar(256),
+    complement              varchar(256),
+    city                    varchar(256),
+    state                   varchar(256)
+);
+
+create table sales_order (
+    id                      integer primary key autoincrement,
+    customerId              integer references customer(id),
+    cartId                  integer references cart(id),
+    addressId               integer references address(id)
+);
 
 /* TEST DATA */
 insert into product (primaryTitle, secondaryTitle, price) values ('Banda Larga', '300 MEGA', 89.90);
