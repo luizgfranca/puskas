@@ -8,6 +8,10 @@ const CustomerService = {
 
     async all() {
         return await CustomerRepository.find();
+    },
+
+    async get(id: number) {
+        return await CustomerRepository.findOneBy({ id })
     }
 }
 

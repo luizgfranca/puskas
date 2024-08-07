@@ -7,6 +7,9 @@ const AddressService = {
     },
     async all() {
         return await AddressRepository.find();
+    },
+    async get(id: number) {
+        return await AddressRepository.findOneBy({ id })
     }
 }
 
