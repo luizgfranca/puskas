@@ -9,6 +9,7 @@ import { CheckoutController } from './controller/checkout.controller';
 import { CustomerController } from './controller/customer.controller';
 import { AddressController } from './controller/address.controller';
 import { OrderController } from './controller/order.controller';
+import { CheckoutConfirmationPage } from './page/checkout-confirmation.page';
 
 export function getRouter(): Router {
     const router = express.Router();
@@ -23,6 +24,7 @@ export function getRouter(): Router {
     LocationsPage(router);
     IndexPage(router);
     CheckoutPage(router);
+    CheckoutConfirmationPage(router);
 
     return router;
 }
