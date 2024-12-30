@@ -10,209 +10,213 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
-        const handlePhone = (event) => {
-            let input = event.target
-            input.value = phoneMask(input.value)
-        }
+      const handlePhone = (event) => {
+        let input = event.target;
+        input.value = phoneMask(input.value);
+      };
 
-        const phoneMask = (value) => {
-        if (!value) return ""
-            value = value.replace(/\D/g,'')
-            value = value.replace(/(\d{2})(\d)/,"($1) $2")
-            value = value.replace(/(\d)(\d{4})$/,"$1-$2")
-            return value
-        }
+      const phoneMask = (value) => {
+        if (!value) return "";
+        value = value.replace(/\D/g, "");
+        value = value.replace(/(\d{2})(\d)/, "($1) $2");
+        value = value.replace(/(\d)(\d{4})$/, "$1-$2");
+        return value;
+      };
 
-        const handleZipCode = (event) => {
-          let input = event.target
-          input.value = zipCodeMask(input.value)
-        }
+      const handleZipCode = (event) => {
+        let input = event.target;
+        input.value = zipCodeMask(input.value);
+      };
 
-        const zipCodeMask = (value) => {
-          if (!value) return ""
-          value = value.replace(/\D/g,'')
-          value = value.replace(/(\d{5})(\d)/,'$1-$2')
-          return value
-        }
-        
+      const zipCodeMask = (value) => {
+        if (!value) return "";
+        value = value.replace(/\D/g, "");
+        value = value.replace(/(\d{5})(\d)/, "$1-$2");
+        return value;
+      };
     </script>
-</html>
   </head>
   <body>
+    <section
+      id="checkout"
+      class="px-4 pt-24 space-y-5 sm:px-6 sm:pt-32 xl:mx-auto xl:max-w-7xl lg:px-8"
+    >
+      <h1 class="text-3xl font-bold pb-16 text-center">
+        Precisamos de só alguns detalhes para completar seu pedido
+      </h1>
 
- <section
-    id="checkout"
-    class="px-4 pt-24 space-y-5 sm:px-6 sm:pt-32 xl:mx-auto xl:max-w-7xl lg:px-8"
-  >
-        <h1 class="text-3xl font-bold pb-16 text-center">Precisamos de só alguns detalhes para completar seu pedido</h1>
+      <h1 class="text-xl mb-0 pb-0 font-bold">Dados de contato:</h1>
+      <hr class="pb-4 h-lg" />
 
-        <h1 class="text-xl mb-0 pb-0 font-bold">Dados de contato:</h1>
-        <hr class="pb-4 h-lg"/>
-
-        <div class="w-70 center">
-          <label class="form-control w-full">
-              <div class="label">
-                <span class="label-text text-lg">CPF/CNPJ:</span>
-              </div>
-              <input type="text" class="input input-bordered w-full max-w-xs" />
-          </label>
-      </div>
-
-        <div class="w-70 center">
-            <label class="form-control w-full">
-                <div class="label">
-                  <span class="label-text text-lg">Nome Completo:</span>
-                </div>
-                <input type="text" class="input input-bordered w-full max-w-3xl" />
-                
-            </label>
-        </div>
-
-        <div class="w-70 center">
-            <label class="form-control w-full">
-                <div class="label">
-                  <span class="label-text text-lg">E-mail:</span>
-                </div>
-                <input type="email" class="input input-bordered w-full max-w-2xl" />
-                
-            </label>
-        </div>
-
-
-        <div class="w-70 center">
-            <label class="form-control w-full">
-                <div class="label">
-                  <span class="label-text text-lg">Telefone:</span>
-                </div>
-                <input type="text" onkeyup="handlePhone(event)" class="input input-bordered w-full max-w-xs" />
-            </label>
-        </div>
-
-
-        <div class="w-70 center">
-            <label class="form-control w-full">
-                <div class="label">
-                  <span class="label-text text-lg">Data de nascimento:</span>
-                </div>
-                <input id="birth-date-input" type="date" class="input input-bordered w-full max-w-xs" />
-                
-            </label>
-        </div>
-
-
-
-        <h1 class="text-xl mb-0 pb-0 pt-24 font-bold">Endereço:</h1>
-        <hr class="pb-4 h-lg"/>
-        <div class="w-70 center">
-            <label class="form-control w-full">
-                <div class="label">
-                  <span class="label-text text-lg">CEP:</span>
-                </div>
-                <input type="text" onkeyup="handleZipCode(event)" class="input input-bordered w-full max-w-xs" />
-                
-            </label>
-        </div>
-
-        <div class="w-70 center">
-            <label class="form-control w-full">
-                <div class="label">
-                  <span class="label-text text-lg">Logradouro:</span>
-                </div>
-                <input type="text" class="input input-bordered w-full max-w-3xl" />
-                
-            </label>
-        </div>
-
-
-        <div class="w-70 center">
-            <label class="form-control w-full">
-                <div class="label">
-                  <span class="label-text text-lg">Número:</span>
-                </div>
-                <input type="text" class="input input-bordered w-full max-w-xs" />
-            </label>
-        </div>
-
-        <div class="w-70 center">
-          <label class="form-control w-full">
-              <div class="label">
-                <span class="label-text text-lg">Complemento:</span>
-              </div>
-              <input type="text" class="input input-bordered w-full max-w-xs" />
-          </label>
-      </div>
-
-        <div class="w-70 center">
-            <label class="form-control w-full">
-                <div class="label">
-                  <span class="label-text text-lg">Bairro:</span>
-                </div>
-                <input type="text" class="input input-bordered w-full max-w-lg" />
-                
-            </label>
-        </div>
-
-
-        <div class="w-70 center">
-          <label class="form-control w-full">
-              <div class="label">
-                <span class="label-text text-lg">Cidade:</span>
-              </div>
-              <input type="text" class="input input-bordered w-full max-w-lg" />
-              
-          </label>
+      <div class="w-70 center">
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text text-lg">CPF/CNPJ:</span>
+          </div>
+          <input type="text" class="input input-bordered w-full max-w-xs" />
+        </label>
       </div>
 
       <div class="w-70 center">
         <label class="form-control w-full">
-            <div class="label">
-              <span class="label-text text-lg">Estado:</span>
-            </div>
-            <select id="estado" name="estado" class="select select-bordered w-full max-w-xs">
-              <option value="AC">Acre</option>
-              <option value="AL">Alagoas</option>
-              <option value="AP">Amapá</option>
-              <option value="AM">Amazonas</option>
-              <option value="BA">Bahia</option>
-              <option value="CE">Ceará</option>
-              <option value="DF">Distrito Federal</option>
-              <option value="ES">Espírito Santo</option>
-              <option value="GO">Goiás</option>
-              <option value="MA">Maranhão</option>
-              <option value="MT">Mato Grosso</option>
-              <option value="MS">Mato Grosso do Sul</option>
-              <option value="MG">Minas Gerais</option>
-              <option value="PA">Pará</option>
-              <option value="PB">Paraíba</option>
-              <option value="PR">Paraná</option>
-              <option value="PE">Pernambuco</option>
-              <option value="PI">Piauí</option>
-              <option value="RJ">Rio de Janeiro</option>
-              <option value="RN">Rio Grande do Norte</option>
-              <option value="RS">Rio Grande do Sul</option>
-              <option value="RO">Rondônia</option>
-              <option value="RR">Roraima</option>
-              <option value="SC">Santa Catarina</option>
-              <option value="SP">São Paulo</option>
-              <option value="SE">Sergipe</option>
-              <option value="TO">Tocantins</option>
-              <option value="EX">Estrangeiro</option>
+          <div class="label">
+            <span class="label-text text-lg">Nome Completo:</span>
+          </div>
+          <input type="text" class="input input-bordered w-full max-w-3xl" />
+        </label>
+      </div>
+
+      <div class="w-70 center">
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text text-lg">E-mail:</span>
+          </div>
+          <input type="email" class="input input-bordered w-full max-w-2xl" />
+        </label>
+      </div>
+
+      <div class="w-70 center">
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text text-lg">Telefone:</span>
+          </div>
+          <input
+            type="text"
+            onkeyup="handlePhone(event)"
+            class="input input-bordered w-full max-w-xs"
+          />
+        </label>
+      </div>
+
+      <div class="w-70 center">
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text text-lg">Data de nascimento:</span>
+          </div>
+          <input
+            id="birth-date-input"
+            type="date"
+            class="input input-bordered w-full max-w-xs"
+          />
+        </label>
+      </div>
+
+      <h1 class="text-xl mb-0 pb-0 pt-24 font-bold">Endereço:</h1>
+      <hr class="pb-4 h-lg" />
+      <div class="w-70 center">
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text text-lg">CEP:</span>
+          </div>
+          <input
+            type="text"
+            onkeyup="handleZipCode(event)"
+            class="input input-bordered w-full max-w-xs"
+          />
+        </label>
+      </div>
+
+      <div class="w-70 center">
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text text-lg">Logradouro:</span>
+          </div>
+          <input type="text" class="input input-bordered w-full max-w-3xl" />
+        </label>
+      </div>
+
+      <div class="w-70 center">
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text text-lg">Número:</span>
+          </div>
+          <input type="text" class="input input-bordered w-full max-w-xs" />
+        </label>
+      </div>
+
+      <div class="w-70 center">
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text text-lg">Complemento:</span>
+          </div>
+          <input type="text" class="input input-bordered w-full max-w-xs" />
+        </label>
+      </div>
+
+      <div class="w-70 center">
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text text-lg">Bairro:</span>
+          </div>
+          <input type="text" class="input input-bordered w-full max-w-lg" />
+        </label>
+      </div>
+
+      <div class="w-70 center">
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text text-lg">Cidade:</span>
+          </div>
+          <input type="text" class="input input-bordered w-full max-w-lg" />
+        </label>
+      </div>
+
+      <div class="w-70 center">
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text text-lg">Estado:</span>
+          </div>
+          <select
+            id="estado"
+            name="estado"
+            class="select select-bordered w-full max-w-xs"
+          >
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+            <option value="EX">Estrangeiro</option>
           </select>
         </label>
-    </div>
-
-
+      </div>
 
       <label class="form-control w-full pt-8">
         <div class="label">
-          <span class="label-text text-xs">Ao clicar em confirmar pedido concordo com o processamento dos meus dados para a execução do mesmo.</span>
+          <span class="label-text text-xs"
+            >Ao clicar em confirmar pedido concordo com o processamento dos meus
+            dados para a execução do mesmo.</span
+          >
         </div>
       </label>
 
       <div class="flex justify-center pb-32">
-        <button class="btn btn-primary w-full max-w-4xl">Confirmar Pedido</button>
+        <button class="btn btn-primary w-full max-w-4xl">
+          Confirmar Pedido
+        </button>
       </div>
-
     </section>
   </body>
 </html>

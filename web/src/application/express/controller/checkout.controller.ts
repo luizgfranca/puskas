@@ -42,4 +42,7 @@ export function CheckoutController(router: Router) {
         const result = await CheckoutService.createOrder(customerId, cartId, addressId);
         res.json(result);
     })
+    router.post('/checkout/submit', async (req ,res) => {
+        
+    })
 }
